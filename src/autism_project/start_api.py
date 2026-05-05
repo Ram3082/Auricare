@@ -53,7 +53,6 @@ def check_env_file():
             print(f"   - {key}")
         print("⚠️  Server will start but some features may not work without real API keys")
         print("⚠️  Please update your .env file with actual API keys for full functionality")
-        # Allow server to start even with placeholder values for testing
         return True
     
     print("✅ .env file looks good")
@@ -64,7 +63,7 @@ def start_server():
     print("🚀 Starting Flask API server...")
     try:
         from chatbot_api import app
-        app.run(debug=True, host='0.0.0.0', port=5000)
+        app.run(debug=True, host='0.0.0.0', port=10000)  # ✅ CHANGED ONLY THIS LINE
     except Exception as e:
         print(f"❌ Failed to start server: {e}")
         return False
@@ -90,7 +89,7 @@ def main():
     print("\n" + "=" * 60)
     print("🎉 All checks passed! Starting the API server...")
     print("=" * 60)
-    print("🌐 API will be available at: http://localhost:5000")
+    print("🌐 API will be available at: http://localhost:10000")  # optional change for clarity
     print("📚 API Documentation:")
     print("   - GET  /api/health")
     print("   - POST /api/doctor/chat")
